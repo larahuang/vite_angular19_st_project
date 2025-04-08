@@ -19,28 +19,29 @@ ul{
   padding-inline-start: 0px;
   max-width: 100%;
   width: 100%;
-  li {
-    display: flex;
-    list-style-type: none;
-    margin: auto 10px;
-    &.activeNav {
-      border-bottom: 2px solid $text-color;
-    }
-    a {
-      cursor: pointer;
-      color: $text-color;
-      font-size: 1.4rem;
-      font-weight:600;
-      text-decoration: none;
+  ul{
+  margin-bottom: 0rem;
+    li {
       display: flex;
-      i{
+      list-style-type: none;
+      margin: auto 10px;
+      &.activeNav {
+        border-bottom: 2px solid $text-color;
+      }
+      a {
+        cursor: pointer;
+        color: $text-color;
+        font-weight:600;
+        text-decoration: none;
         display: flex;
-        align-items: center;
-        margin-right: 5px;
+        i{
+          display: flex;
+          align-items: center;
+          margin-right: 5px;
+        }
       }
     }
   }
-
   &.adminBg{
     background-color: #333;
     color:white;
@@ -66,7 +67,6 @@ ul{
       a {
         cursor: pointer;
         color: #ddd;
-        font-size: 1.4rem;
         text-decoration: none;
       }
     }

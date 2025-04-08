@@ -1,7 +1,14 @@
 @use 'bootstrap/scss/bootstrap';
+$default-font-size:20px;
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body { height: 100%;
+font-size: $default-font-size; }
+ul{
+  margin-bottom: 0rem;
+}
+body {
+  margin: 0;
+}
 
 .ml-1{
 margin-left: 10px;
@@ -9,9 +16,7 @@ margin-left: 10px;
 .ml-2{
 margin-left: 20px;
 }
-ul{
-  margin-bottom: 0rem;
-}
+
 //table
 .table_container{
   margin-top: 60px;
