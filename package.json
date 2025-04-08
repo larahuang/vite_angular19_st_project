@@ -1,13 +1,13 @@
 {
-  "name": "lara-project",
-  "version": "0.0.0",
+  "name": "vite_angular19_st_project",
+  "version": "1.0.0",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "serve:ssr:lara_project": "node dist/lara_project/server/server.mjs"
+    "serve:ssr:vite_angular19_st_project": "node dist/vite_angular19_st_project/server/server.mjs"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +22,9 @@
     "@angular/platform-server": "^19.2.0",
     "@angular/router": "^19.2.0",
     "@angular/ssr": "^19.2.6",
+    "@ng-bootstrap/ng-bootstrap": "^18.0.0",
+    "@popperjs/core": "^2.11.8",
+    "bootstrap": "^5.3.5",
     "express": "^4.18.2",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
@@ -31,6 +34,7 @@
     "@angular-devkit/build-angular": "^19.2.6",
     "@angular/cli": "^19.2.6",
     "@angular/compiler-cli": "^19.2.0",
+    "@angular/localize": "^19.2.0",
     "@types/express": "^4.17.17",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^18.18.0",

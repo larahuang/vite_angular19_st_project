@@ -1,4 +1,204 @@
-/* You can add global styles to this file, and also import other style files */
+@use 'bootstrap/scss/bootstrap';
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.ml-1{
+margin-left: 10px;
+}
+.ml-2{
+margin-left: 20px;
+}
+ul{
+  margin-bottom: 0rem;
+}
+//table
+.table_container{
+  margin-top: 60px;
+  th{
+    &:nth-child(2),
+    &:nth-child(3),
+   &:nth-child(4){
+    cursor: pointer;
+    position: relative;
+    &:hover{
+      color:#795548;
+      &::after{
+          content: "\f077";
+          font-family: "Font Awesome 6 Free";
+          font-style: normal;
+          font-variant: normal;
+          font-weight: 900;
+          line-height: 1.5;
+          margin-right: 10px;
+          position: absolute;
+          top:20%;
+          right:10%;
+          text-rendering: auto;
+          --fa: "\f077";
+          -webkit-font-smoothing: antialiased;
+          display: var(--fa-display, inline-block);
+      }
+    }
+    &.asc{
+      &::after{
+       transform: rotate(0deg);
+      }
+    }
+    &.desc{
+      &::after{
+       transform: rotate(180deg);
+      }
+    }
+   }
+  }
+}
+.default_table{
+  margin: auto;
+  .row{
+     width: 100%;
+    max-width: 100%;
+  }
+}
+.form-control{
+  width: 100%;
+  max-width: 100%;
+  border:2px solid rgb(44, 120, 235);
+  letter-spacing: 1.5px;
+  &:focus {
+    color: var(--bs-body-color);
+    background-color: var(--bs-body-bg);
+    border-color: rgb(134, 182.5, 254);
+    outline: 0;
+    box-shadow: 0 0 0 0.15rem rgba(13, 110, 253, 0.25);
+}
+}
+// 分頁Pagination
+.page-link:focus {
+    background-color: transparent;
+    box-shadow: inset 1px -1px 0 0.25rem  transparent;
+}
+a:-webkit-any-link:focus-visible {
+    outline-offset: 0px;
+}
+a:hover {
+    --bs-link-color-rgb:  transparent;
+}
+:focus-visible {
+    outline: white auto 0px;
+}
+.ng_pagination_area {
+  align-items: center;
+  .pagination_bar{
+    display: flex;
+    align-items: center;
+  }
+  .pagination{
+    margin-bottom: 0rem;
+    li {
+      &:first-child a {
+        span {
+          display: none;
+        }
+      }
+    }
+    .active > {
+      .page-link{
+        color:green;
+        background-color: transparent;
+        border-radius: 50%;
+        border:  2px solid green;
+        &:hover,&:focus{
+          background-color: transparent;
+        }
+      }
+    }
+    .page-item{
+      .page-link{
+        color:green;
+        border-color: transparent;
+        background-color: transparent;
+        &:hover,&:focus{
+          background-color: transparent;
+          border: 0px solid transparent;
+        }
+      }
+      &.disabled{
+        .page-link{
+          color:#ddd;
+        }
+      }
+      &:not( :first-child,:last-child,:nth-child(2),:nth-last-child(2) ){
+        .page-link{
+          &:hover,&:focus{
+            background-color: transparent;
+            border-radius: 50%;
+            border:  2px solid green;
+          }
+        }
+      }
+      &:not(:first-child){ color:red; }
+      }
+  }
+}
+/*下拉元件*/
+// .btn{
+//     border:2px solid #ffd207;
+//     &:hover,&:focus{
+//        background-color: #ffd207;
+//       color:#333;
+//     }
+// }
+.dropup{
+   margin-left: 10px;
+  .dropdown-toggle{
+    border-color:#ffd207;
+    color:#333;
+  }
+  .btn{
+    border:1px solid #ffd207;
+    --bs-btn-padding-x: 0.75rem;
+    --bs-btn-padding-y: 0.175rem;
+    &:hover,&:focus{
+      background-color: #ffd207;
+      color:#333;
+    }
+  }
+  .dropdown-menu{
+    min-width: 50px;
+    &.show {
+      min-width: 50px
+    }
+    .dropdown-item{
+      &.active,
+      &:active{
+      background-color: #ffd207;
+        color:#333;
+      }
+    }
+  }
+}
+.dropdown-menu{
+    min-width: 50px;
+    &.show {
+      min-width: 50px
+    }
+}
+.btn-check:checked + .btn,
+:not(.btn-check) +
+.btn:active,
+.btn:first-child:active,
+.btn.active,
+.btn.show {
+    color:#333;
+    background-color:#ffd207;
+    border-color: #ffd207;
+}
+
+
+
+@media screen and (width<=767px){}
+@media screen and (width<=600px){}
+
+/* Importing Bootstrap SCSS file. */
+@import 'bootstrap/scss/bootstrap';

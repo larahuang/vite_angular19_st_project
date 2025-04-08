@@ -1,0 +1,37 @@
+<nav class="nav" [ngClass]="{ 'adminBg' : sendIsAdminBgClass }">
+   <ul>
+     <li
+     *ngFor="let item of sendNavLists ; let i = index"
+     [ngClass]="sendPageTitle === item.title ? 'activeNav' : ''"
+     >
+      <a
+        [routerLink]="item.path"
+        routerActive="active"
+         (click)="sendActionList(item.title)"
+        class="cursor-pointer"
+        >
+        <i [ngClass]="item.icon"></i>
+        <div class="subject">{{item.title}}</div>
+      </a>
+     </li>
+   </ul>
+   <ul class="right_content" >
+    <li  *ngIf="sendIsAdminBgClass">
+      <a
+      class="cursor-pointer"
+      routerActive="active"
+     (click)="sendSignOut()">
+        <i class="fa-solid fa-arrow-right-from-bracket"></i><div class="subject">Singn Out</div>
+      </a>
+    </li>
+
+    <li  *ngIf="!sendIsAdminBgClass">
+      <a
+      class="cursor-pointer"
+      routerLink="/index/login"
+      routerActive="active">
+        <i class="fa-solid fa-user"></i><div class="subject">Login</div>
+      </a>
+    </li>
+   </ul>
+ </nav>
