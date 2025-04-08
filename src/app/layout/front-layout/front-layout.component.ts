@@ -10,11 +10,11 @@ import { navbarType,navListActiveType } from '../../Types/navbar';
 })
 export class FrontLayoutComponent {
   navLists: navbarType[] = [
-    { title: 'Home', path: '', icon: 'fa-solid fa-house-chimney' },
-    { title: 'Products', path: '/index/products', icon: 'fa-solid fa-house-chimney' },
+    { title: '首頁', path: '', icon: 'fa-solid fa-house-chimney' },
+    { title: '產品介紹', path: '/index/products', icon: 'fa-solid fa-house-chimney' },
   ]
   isActive: navListActiveType["isActive"] = true;
-    pageTitle: navListActiveType["pageTitle"] = "Home";
+    pageTitle: navListActiveType["pageTitle"] = "首頁";
     actionList(title: string) {
       this.pageTitle = title;
     }
