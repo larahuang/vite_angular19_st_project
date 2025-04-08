@@ -1,5 +1,8 @@
 # LaraProject
 
+<div>Node v20.17.0</div>
+<div>Angular CLI 19.2.6.</div>
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.6.
 
 ## Development server
