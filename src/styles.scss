@@ -1,6 +1,7 @@
 @use 'bootstrap/scss/bootstrap';
 $default-font-size:20px;
 $color_default:#673ab7;
+$bg-color:#d1c4e9;
 html, body { height: 100%;
 font-size: $default-font-size; }
 
@@ -193,7 +194,18 @@ a:hover {
     border-color: $color_default;
 }
 
-
+footer{
+  background-color: $bg-color;
+  display: flex;
+  justify-content: center;
+  p{
+    display: block;
+    font-size: 12px;
+    margin-bottom: 0rem;
+    padding: 5px;
+    text-align: center;
+  }
+}
 
 @media screen and (width<=767px){}
 @media screen and (width<=600px){}

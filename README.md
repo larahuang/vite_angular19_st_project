@@ -1,4 +1,4 @@
-# LaraProject
+# Lara Shopping Project
 
 <div>Node v20.17.0</div>
 <div>Angular CLI 19.2.6.</div>

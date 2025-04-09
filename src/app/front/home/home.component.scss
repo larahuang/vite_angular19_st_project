@@ -31,6 +31,7 @@ $color_default:#673ab7;
 .product_area{
   display: flex;
   flex-direction: column;
+  padding-bottom: 50px;
   .card_lists{
       display: flex;
       flex-wrap: wrap;
