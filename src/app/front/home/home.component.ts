@@ -67,7 +67,7 @@ export class HomeComponent implements OnInit  {
   }
   // 搜尋引擎
   searchStation(value:string) {
-    return this.products = this.service.productLists.filter((i: any) => {
+    return this.products = this.service.productLists.filter((i: any,index,array:productsType[]) => {
       let valueToLowerCase = value.toLowerCase()
         if (i.name.toLowerCase().indexOf(valueToLowerCase)!==-1 || i.category.toLowerCase().indexOf(valueToLowerCase)!==-1 || i.content.toLowerCase().indexOf(valueToLowerCase)!==-1) {
           return i
