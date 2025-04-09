@@ -1,1 +1,98 @@
-<p>home works!</p>
+
+<div class="container product_area">
+  {{searchResultTotal}} {{page}} {{refreshProducts()}}
+  <div class="list_icon">
+   <div class="search">
+        <input
+          type="text"
+          class="form-control"
+          name="searchTerm"
+          [formControl]="searchingInputControl"
+          (keyup.enter)="searchingInputControl"
+          placeholder="請輸入名稱"
+        />
+  </div>
+
+    <i class="fa-solid fa-bars"
+    [ngClass]="{'active':!isGrid}"
+    (click)="changeGrid()"></i>
+    <i class="fa-solid fa-grip-vertical"
+     [ngClass]="{'active':isGrid}"
+    (click)="changeGrid()"></i>
+  </div>
+  <!--table-->
+  <div class="card_lists" [ngClass]="{'other':isGrid}">
+    <div class="li"
+    *ngFor="let item of products ;let index=index"
+    >
+      <div class="index">
+        <div class="round">
+          <div *ngIf="page===1">{{ index+1  }}</div>
+        <div *ngIf="page>1">{{ index+1 +(pageSize*(page -1)) }}</div>
+        </div>
+      </div>
+      <div class="category">
+        {{item.category }}
+      </div>
+
+      <div class="name">
+        {{item.name}}
+      </div>
+      <div class="img">
+        <img [src]="item.image"/>
+      </div>
+      <div class="price_area">
+        <div class="price_text">
+          {{item.price | currency}}
+        </div>
+        <a class="btn btn-danger">購買</a>
+      </div>
+      <div class="createdTime">
+        {{item.createdTime    }}
+      </div>
+      <div class="content">
+        <p >
+        {{item.content}}
+        </p>
+      </div>
+
+      <a class="btn btn-danger">購買</a>
+    </div>
+  </div>
+
+    <!---分頁 -->
+  <div class="d-flex justify-content-center ng_pagination_area mt-3">
+      <ngb-pagination
+      [collectionSize]="searchResultTotal!"
+      [(page)]="page"
+      [maxSize]="5"
+      [rotate]="true"
+      [ellipses]="false"
+      [boundaryLinks]="true"
+      [pageSize]="pageSize"
+      (pageChange)="refreshProducts()"
+      >
+        <ng-template ngbPaginationFirst>
+          <i class="fa-solid fa-angles-left"></i>
+          </ng-template>
+        <ng-template ngbPaginationPrevious>
+          <i class="fa-solid fa-chevron-left"></i>
+        </ng-template>
+        <ng-template ngbPaginationNext>
+          <i class="fa-solid fa-chevron-right"></i>
+        </ng-template>
+        <ng-template ngbPaginationLast>
+          <i class="fa-solid fa-angles-right"></i>
+        </ng-template>
+      </ngb-pagination>
+
+    <div ngbDropdown>
+      <button type="button" class="btn btn_default" id="dropdownConfig" ngbDropdownToggle>{{pageSize}}</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownConfig">
+        <button ngbDropdownItem
+        *ngFor="let item of pagePerOptions"
+        (click)="changeItemsPerPage(item)">{{item.label}}</button>
+      </div>
+    </div>
+  </div>
+</div>

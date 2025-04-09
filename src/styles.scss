@@ -1,11 +1,9 @@
 @use 'bootstrap/scss/bootstrap';
 $default-font-size:20px;
-
+$color_default:#673ab7;
 html, body { height: 100%;
 font-size: $default-font-size; }
-ul{
-  margin-bottom: 0rem;
-}
+
 body {
   margin: 0;
 }
@@ -109,10 +107,10 @@ a:hover {
     }
     .active > {
       .page-link{
-        color:green;
+        color:$color_default;
         background-color: transparent;
         border-radius: 50%;
-        border:  2px solid green;
+        border:  2px solid $color_default;
         &:hover,&:focus{
           background-color: transparent;
         }
@@ -120,7 +118,7 @@ a:hover {
     }
     .page-item{
       .page-link{
-        color:green;
+        color:$color_default;
         border-color: transparent;
         background-color: transparent;
         &:hover,&:focus{
@@ -138,7 +136,7 @@ a:hover {
           &:hover,&:focus{
             background-color: transparent;
             border-radius: 50%;
-            border:  2px solid green;
+            border:  2px solid $color_default;
           }
         }
       }
@@ -146,27 +144,22 @@ a:hover {
       }
   }
 }
-/*下拉元件*/
-// .btn{
-//     border:2px solid #ffd207;
-//     &:hover,&:focus{
-//        background-color: #ffd207;
-//       color:#333;
-//     }
-// }
+.btn{
+   border:1px solid $color_default;
+}
 .dropup{
    margin-left: 10px;
   .dropdown-toggle{
-    border-color:#ffd207;
+    border-color:$color_default;
     color:#333;
   }
   .btn{
-    border:1px solid #ffd207;
+    border:1px solid $color_default;
     --bs-btn-padding-x: 0.75rem;
     --bs-btn-padding-y: 0.175rem;
     &:hover,&:focus{
-      background-color: #ffd207;
-      color:#333;
+      background-color: $color_default;
+      color:#ffff;
     }
   }
   .dropdown-menu{
@@ -177,7 +170,7 @@ a:hover {
     .dropdown-item{
       &.active,
       &:active{
-      background-color: #ffd207;
+      background-color: $color_default;
         color:#333;
       }
     }
@@ -195,15 +188,12 @@ a:hover {
 .btn:first-child:active,
 .btn.active,
 .btn.show {
-    color:#333;
-    background-color:#ffd207;
-    border-color: #ffd207;
+    color:#ffff;
+    background-color:$color_default;
+    border-color: $color_default;
 }
 
 
 
 @media screen and (width<=767px){}
 @media screen and (width<=600px){}
-
-/* Importing Bootstrap SCSS file. */
-@import 'bootstrap/scss/bootstrap';

@@ -1,0 +1,211 @@
+$color_default:#673ab7;
+.btn_default{
+  border:2px solid $color_default;
+  &:hover,&:focus{
+    background-color: $color_default;
+    color:#ffff;
+  }
+}
+.list_icon{
+  display: flex;
+  justify-content: center;
+  margin-top: 25px;
+  font-size: 1.5rem;
+  .search{
+    display: flex;
+    width: 91%;
+    margin:auto 5px auto 0px;
+  }
+  i{
+    margin: 10px;
+    cursor: pointer;
+    &:hover,&:focus{
+      color:#80808080;
+    }
+    &.active{
+      color:$color_default;
+    }
+  }
+}
+
+.product_area{
+  display: flex;
+  flex-direction: column;
+  .card_lists{
+      display: flex;
+      flex-wrap: wrap;
+      max-width: 100%;
+      width:100%;
+      padding: 0px;
+      &.other{
+        .li{
+          align-items: center;
+          flex-direction: row;
+          max-width:100%;
+          width:100%;
+          margin: 2px auto;
+          border-bottom: 1px solid #ddd;
+          .btn-danger{
+            display: block;
+            width: 100px;
+          }
+          .index{
+            width: 5%;
+            margin-top: 0px;
+            line-height: 1.4;
+            .round{
+              line-height: 1.4;
+            div{
+              line-height: 1.4;
+            }
+            }
+
+          }
+          div{
+            align-items: center;
+            display: flex;
+            justify-content: flex-start;
+            line-height: 47px;
+            width: 13%;
+          }
+          .category{
+            margin-top: 0px;
+            width: 13%;
+            text-align: left;
+          }
+          .name{
+            white-space: nowrap;
+            width: 25%;
+          }
+          .img{
+            width: 10%;
+            padding-bottom: 2px;
+          }
+          .price_area{
+            width: 10%;
+            .btn-danger{
+              display: none;
+            }
+          }
+          .createdTime,.updatedTime{
+            width: 27%;
+          }
+          .content{
+            width: 38%;
+            p{
+              margin-bottom: 0rem;
+            }
+          }
+        }
+      }
+    .li{
+      display: flex;
+      flex-direction: column;
+      justify-content: stretch;
+      margin:auto 5px ;
+      max-width:19%;
+      width:19%;
+      img,div{
+          width: 100%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+        }
+        .index{
+          margin-top: 21px;
+          .round{
+            border-radius: 50%;
+            border: 1px solid $color_default;
+            background-color: $color_default;
+            color:#ffff;
+            width: 32px;
+            height: 32px;
+            text-align: center;
+          }
+        }
+        .category{
+          font-weight: 400;
+        }
+        .name{
+          white-space: nowrap;
+          font-weight: bolder;
+
+        }
+        .img{
+          border:1px solid #ddd;
+          padding: 2px;
+        }
+        .price_area{
+          .price_text{
+            font-weight: bolder;
+          }
+          .btn-danger{
+            display:block;
+          }
+        }
+        .content{
+          p{
+            width: 90%;
+            padding: 2px;
+            overflow:hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+          }
+        }
+        .btn-danger{
+          display:none;
+        }
+    }
+  }
+}
+
+@media screen and (width<=1200px){
+  .product_area .card_lists .li {
+    margin: auto 15px;
+    max-width: 30%;
+    width: 30%;
+  }
+}
+@media screen and (width<=992px){
+  .product_area {
+    max-width: 970px;
+  }
+}
+@media screen and (width<=930px){
+   .product_area .card_lists .li {
+         margin: auto 24px;
+        max-width: 28%;
+        width: 28%;
+   }
+}
+@media screen and (width<=925px){
+   .product_area .card_lists .li {
+         margin: auto 24px;
+        max-width: 25%;
+        width: 25%;
+   }
+}
+
+@media screen and (width<=768px){
+   .product_area .card_lists .li {
+      margin: auto 22px;
+        max-width: 26.9%;
+        width: 26.9%;
+   }
+}
+
+@media screen and (width<=767px){
+   .product_area .card_lists .li {
+              margin: auto 15px;
+        max-width: 45%;
+        width: 45%;
+   }
+}
+
+@media screen and (width<=630px){
+   .product_area .card_lists .li {
+              margin: auto 15px;
+        max-width: 40%;
+        width: 40%;
+   }
+}
