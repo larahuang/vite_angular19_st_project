@@ -1,4 +1,12 @@
 $color_default:#673ab7;
+.btn-danger{
+  background-color: #c3abec;
+  border:1px solid #c3abec;
+  &:hover,&:focus{
+    background-color: $color_default;
+    border:1px solid $color_default
+  }
+}
 .btn_default{
   border:2px solid $color_default;
   &:hover,&:focus{
@@ -33,19 +41,29 @@ $color_default:#673ab7;
   flex-direction: column;
   padding-bottom: 50px;
   .card_lists{
-      display: flex;
-      flex-wrap: wrap;
-      max-width: 100%;
-      width:100%;
-      padding: 0px;
-      &.other{
+      margin: 0px auto;
+      column-count:4;
+      column-gap: 10px;
+      width: 90%;
+    &.other{
+        display: flex;
+        flex-wrap: wrap;
+        font-size: medium;
+        max-width: 100%;
+        column-count:0;
+        column-gap: 0px;
+        width:100%;
+        padding: 0px;
         .li{
           align-items: center;
-          flex-direction: row;
-          max-width:100%;
-          width:100%;
-          margin: 2px auto;
           border-bottom: 1px solid #ddd;
+          display: flex;
+          flex-wrap: nowrap;
+          flex-direction: row;
+          padding: 0px;
+          max-width:100%;
+          margin: 2px auto;
+          width:100%;
           .btn-danger{
             display: block;
             width: 100px;
@@ -53,34 +71,43 @@ $color_default:#673ab7;
           .index{
             width: 5%;
             margin-top: 0px;
-            line-height: 1.4;
+            line-height: 1.8;
             .round{
-              line-height: 1.4;
-            div{
-              line-height: 1.4;
+              line-height: 1.8;
+              div{
+                line-height: 1.8;
+              }
             }
-            }
-
           }
           div{
             align-items: center;
             display: flex;
             justify-content: flex-start;
-            line-height: 47px;
+            line-height: 1.5;
             width: 13%;
           }
+
           .category{
             margin-top: 0px;
-            width: 13%;
-            text-align: left;
+            padding-left: 6px;
+            width: 10%;
           }
           .name{
-            white-space: nowrap;
-            width: 25%;
+            padding-left: 6px;
+            width: 16%;
           }
-          .img{
-            width: 10%;
-            padding-bottom: 2px;
+          .img_area{
+            padding: 1px;
+            .img{
+              border-width: 0px;
+              width: 90px;
+              img{
+                object-fit: contain;
+                object-position: center;
+                width: 70px;
+                height: 50px;
+              }
+            }
           }
           .price_area{
             width: 10%;
@@ -97,15 +124,31 @@ $color_default:#673ab7;
               margin-bottom: 0rem;
             }
           }
+          .btn-danger{
+            white-space: nowrap;
+          }
+        }
+    }
+    .li{
+      cursor: pointer;
+      box-sizing: border-box;
+      break-inside: avoid;
+      margin: 0 auto 3px;
+      padding: 5px;
+      position: relative;
+      &:hover{
+        .name{
+          color:$color_default;
+        }
+        img{
+          filter: saturate(200%);
+          -webkit-filter:saturate(200%);
         }
       }
-    .li{
-      display: flex;
-      flex-direction: column;
-      justify-content: stretch;
-      margin:auto 5px ;
-      max-width:19%;
-      width:19%;
+      .category,.name,.price_area, .createdTime,.updatedTime{
+        white-space: nowrap;
+        text-align: left;
+      }
       img,div{
           width: 100%;
           display: flex;
@@ -155,17 +198,16 @@ $color_default:#673ab7;
         }
         .btn-danger{
           display:none;
+          white-space: nowrap;
+        }
+        .createdTime{
+          font-size:medium;
         }
     }
   }
 }
 
 @media screen and (width<=1200px){
-  .product_area .card_lists .li {
-    margin: auto 15px;
-    max-width: 30%;
-    width: 30%;
-  }
 }
 @media screen and (width<=992px){
   .product_area {
@@ -173,40 +215,76 @@ $color_default:#673ab7;
   }
 }
 @media screen and (width<=930px){
-   .product_area .card_lists .li {
-         margin: auto 24px;
-        max-width: 28%;
-        width: 28%;
-   }
 }
 @media screen and (width<=925px){
-   .product_area .card_lists .li {
-         margin: auto 24px;
-        max-width: 25%;
-        width: 25%;
-   }
 }
 
 @media screen and (width<=768px){
-   .product_area .card_lists .li {
-      margin: auto 22px;
-        max-width: 26.9%;
-        width: 26.9%;
-   }
+  .product_area .card_lists {
+    width: 90%;
+  }
 }
 
 @media screen and (width<=767px){
-   .product_area .card_lists .li {
-              margin: auto 15px;
-        max-width: 45%;
-        width: 45%;
-   }
+  .product_area .card_lists {
+    column-count: 3;
+    width: 95%;
+    &.other{
+      column-count: 3;
+      column-gap: 0px;
+      width: 95%;
+      .li {
+
+        padding: 5px;
+        box-sizing: border-box;
+        margin: 0 auto 3px;
+        break-inside: avoid;
+        position: relative;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 30%;
+        div{
+          width: 33%;
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-start;
+        }
+        .index,.category,.name,.img_area,.price_area,.createdTime,.content,.btn.btn-dange{
+          width: 100%;
+        }
+        .img_area{
+          .img{
+            width: 100%;
+            img{
+              height: auto;
+              width: 100%;
+            }
+          }
+        }
+        .btn-danger{
+          width: 100%;
+        }
+      }
+    }
+  }
+  .product_area .card_lists.other .li .index {
+    width: 100%;
+    margin-top: 0px;
+    line-height: 1.8;
+}
 }
 
-@media screen and (width<=630px){
-   .product_area .card_lists .li {
-              margin: auto 15px;
-        max-width: 40%;
-        width: 40%;
-   }
+@media screen and (width<=640px){
+   .product_area .card_lists {
+    column-count: 2;
+    width: 95%;
+     &.other{
+      column-count: 2;
+      column-gap: 0px;
+      width: 95%;
+      .li {
+        width: 47%;
+      }
+     }
+  }
 }

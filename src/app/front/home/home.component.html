@@ -1,3 +1,33 @@
+<!--購物車-->
+<div class="carts">
+  <div class="shop_cart" (click)="openCart()">
+    <i class="fa-solid fa-cart-shopping"
+    ></i>
+    <div class="shop_cart_number">{{addShopLists.length}}</div>
+  </div>
+  <ul class="shopLists" *ngIf="isOpenCart">
+    <li  *ngFor="let i of addShopLists;let index =index">
+      <div>{{i.productName}}</div>
+      <div>{{i.productPrice}}</div>
+      <div>
+        <i (click)="minuItem(i,index)" class="fa-solid fa-minus"></i>
+        {{i.productQuantity}}
+        <i (click)="addItem(i,index)" class="fa-solid fa-plus"></i>
+      </div>
+      <div>{{i.productSum  | currency}} </div>
+    </li>
+    <li class="fare"  *ngIf="isFare">運費
+      : {{120| currency}}</li>
+    <li class="totalSum" >{{totalSum | currency}}</li>
+
+    <li>
+       <a  (click)="open(content)"
+        class="btn btn-danger">結帳</a>
+    </li>
+
+  </ul>
+</div>
+
 <div class="container product_area">
   <div class="list_icon">
    <div class="search">
@@ -21,9 +51,10 @@
   <!--table-->
   <div class="card_lists" [ngClass]="{'other':isGrid}">
     <div class="li"
+      (click)="viewProduct($event,item)"
     *ngFor="let item of products ;let index=index"
     >
-      <div class="index">
+      <div class="index" *ngIf="isGrid">
         <div class="round">
           <div *ngIf="page===1">{{ index+1  }}</div>
         <div *ngIf="page>1">{{ index+1 +(pageSize*(page -1)) }}</div>
@@ -32,21 +63,24 @@
       <div class="category">
         {{item.category }}
       </div>
-
       <div class="name">
         {{item.name}}
       </div>
-      <div class="img">
-        <img [src]="item.image"/>
+      <div class="img_area"
+      >
+        <div class="img">
+        <img [src]="'https://drive.google.com/thumbnail?id='+item.image+'&sz=w1366'"/>
+        </div>
       </div>
       <div class="price_area">
         <div class="price_text">
           {{item.price | currency}}
         </div>
-        <a class="btn btn-danger">購買</a>
+        <a  (click)="addToShop($event,item)"
+        class="btn btn-danger">購買</a>
       </div>
       <div class="createdTime">
-        {{item.createdTime    }}
+        {{ item.buildDate | date:'yyyy-MM-dd HH:mm'  }}
       </div>
       <div class="content">
         <p >
@@ -54,7 +88,9 @@
         </p>
       </div>
 
-      <a class="btn btn-danger">購買</a>
+      <a class="btn btn-danger"
+      (click)="$event.preventDefault();addToShop($event,item)"
+      >購買</a>
     </div>
   </div>
 
@@ -94,3 +130,32 @@
     </div>
   </div>
 </div>
+
+<!--跳出框-->
+<ng-template #content let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title" id="modal-basic-title">Profile update</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body">
+		<form>
+			<!-- <div class="mb-3">
+				<label for="dateOfBirth">Date of birth</label>
+				<div class="input-group">
+					<input
+						id="dateOfBirth"
+						class="form-control"
+						placeholder="yyyy-mm-dd"
+						name="dp"
+						ngbDatepicker
+						#dp="ngbDatepicker"
+					/>
+					<button class="btn btn-outline-secondary bi bi-calendar3" (click)="dp.toggle()" type="button"></button>
+				</div>
+			</div> -->
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button type="button" class="btn btn-outline-secondary" (click)="modal.close('Save click')">送出</button>
+	</div>
+</ng-template>
