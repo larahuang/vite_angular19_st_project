@@ -1,3 +1,13 @@
+export interface navbarType{
+  title: string ,
+  path: string,
+  icon?:string|undefined,
+
+}
+export interface navListActiveType{
+  isActive: boolean,
+  pageTitle: string,
+}
 export interface productsType{
   _id: string,
   name: string,
@@ -6,8 +16,8 @@ export interface productsType{
     image: string,
     content: string,
     category: string,
-    createdTime: string,
-    updatedTime: string,
+    buildDate: number,
+    updataDate: number,
 }
 
 export type SortColumn = keyof productsType | '';
@@ -22,4 +32,24 @@ export interface SortEvent {
 export interface pagePerOptionType{
     value: number,
     label:string
-  }
+}
+export interface addShopListType {
+  categoryId: string,
+  category: string,
+  productId:string,
+  productName: string,
+  productPrice: number,
+  productQuantity: number,
+  productSum: number,
+ }
+export interface orderListType {
+  customerId: string,
+  customerName:string,
+  email: string,
+  phone: string,
+  city: string,
+  town: string,
+  add_detail: string,
+  totalPrice: 246
+  products: addShopListType[],
+}

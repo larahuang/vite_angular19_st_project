@@ -1,16 +1,19 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, computed, effect, signal, inject } from '@angular/core';
 import { Router,RouterLink } from '@angular/router';
-import { NgFor,NgClass, NgIf } from '@angular/common';
-import { navbarType } from '../../Types/navbar'
+import { NgFor, NgClass, NgIf, JsonPipe } from '@angular/common';
+import { ProductsService } from '../../@sevice/productService';
+import { navbarType } from '../../@Type/default'
 @Component({
   selector: 'app-navbar',
-  imports: [RouterLink,NgFor,NgClass,NgIf],
+  imports: [RouterLink,NgFor,NgClass,NgIf ],
   templateUrl: './navbar.component.html',
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent implements OnInit {
-
-  constructor(private router: Router) { }
+   public getTotalSum = inject(ProductsService);
+  constructor(private router: Router,
+  ) {
+  }
   @Input() sendNavLists!: navbarType[];
   @Input() sendPageTitle!: string;
   @Input() sendIsActive!: boolean;
@@ -25,6 +28,10 @@ export class NavbarComponent implements OnInit {
   sendSignOut() {
     this.newSendSignPath.emit();
   }
-  ngOnInit(): void { }
+
+
+  ngOnInit(): void {
+
+   }
 
 }

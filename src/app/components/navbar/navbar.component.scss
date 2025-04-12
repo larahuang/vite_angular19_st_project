@@ -1,5 +1,28 @@
 $bg-color:#d1c4e9;
 $text-color:#673ab7;
+$shop-cart-number-width:28px;
+.shop_cart{
+  padding-right: 20px;
+  padding-top: 3px;
+  position: relative;
+  .fa-cart-shopping{
+    color:rgb(178, 13, 13);
+  }
+  .shop_cart_number{
+    background-color: #673ab7;
+    border-radius: 50%;
+    color:white;
+    font-size:medium;
+    height: $shop-cart-number-width;
+    line-height: $shop-cart-number-width;
+    position: absolute;
+    top: -10px;
+    text-align: center;
+    right: 0px;
+    width: $shop-cart-number-width;
+
+  }
+}
 ul{
   display: flex;
   li{
@@ -80,3 +103,5 @@ ul{
 .activeNav {
   border-bottom: 1px solid #333;
 }
+
+

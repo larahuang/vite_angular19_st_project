@@ -1,8 +1,8 @@
-import { Injectable } from '@angular/core';
+import { computed, Injectable } from '@angular/core';
 import { ApiService } from './apiServic';
 import { catchError } from 'rxjs/operators';
 import { BehaviorSubject, Observable, of } from 'rxjs';
-import { productsType } from '../@Type/default';
+import { productsType,orderListType,addShopListType } from '../@Type/default';
 
 @Injectable({
   providedIn: 'root'
@@ -14,8 +14,9 @@ export class ProductsService {
   products$: Observable<productsType[]> = this.products.asObservable();
   productsLength = new BehaviorSubject<number>(0);
   productsLength$: Observable<number> = this.productsLength.asObservable();
+  addShopLists: addShopListType[] = [];
+  addShopListsLength: number = 0;
   constructor(private apiService:ApiService) {
-
   }
   getProducts() {
     this.apiService.getProductsData()
@@ -32,4 +33,5 @@ export class ProductsService {
 
       })
   }
+
 }
